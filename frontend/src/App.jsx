@@ -18,14 +18,14 @@ import PaymentSummary from './pages/PaymentSummary'
 import TicketPage from './pages/TicketPage'
 import CreatEvent from './pages/CreateEvent'
 
-axios.defaults.baseURL = 'http://localhost:4000/';
+axios.defaults.baseURL = `${meta.import.meta.env.REACT_BACKEND}/`;
 axios.defaults.withCredentials=true;
 
 function App() {
   return (
-    <UserContextProvider> 
+    <UserContextProvider>
     <Routes>
-            
+
       <Route path='/' element={<Layout />}>
         <Route index element = {<IndexPage />} />
         <Route path='/useraccount' element = {<UserAccountPage />}/>
@@ -41,10 +41,10 @@ function App() {
       <Route path='/forgotpassword' element = {<ForgotPassword/>} />
       <Route path='/resetpassword' element = {<ResetPassword/>} />
       <Route path='/event/:id/ordersummary/paymentsummary' element = {<PaymentSummary />} />
-      
-    
+
+
     </Routes>
-    </UserContextProvider>  
+    </UserContextProvider>
   )
 }
 
