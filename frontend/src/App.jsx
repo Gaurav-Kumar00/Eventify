@@ -18,7 +18,7 @@ import PaymentSummary from './pages/PaymentSummary'
 import TicketPage from './pages/TicketPage'
 import CreatEvent from './pages/CreateEvent'
 
-axios.defaults.baseURL = `${meta.import.meta.env.REACT_BACKEND}/`;
+axios.defaults.baseURL = `${import.meta.env.REACT_BACKEND}/`;
 axios.defaults.withCredentials=true;
 
 function App() {
