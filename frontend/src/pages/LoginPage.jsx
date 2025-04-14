@@ -50,11 +50,11 @@ export default function LoginPage() {
   if(redirect){
     return <Navigate to={'/'}/>
   }
-  
+
   return (
     <div className ="flex w-full h-full lg:ml-24 px-10 py-10 justify-between place-items-center mt-20">
       <div className= "bg-white w-full sm:w-full md:w-1/2 lg:w-1/3 px-7 py-7 rounded-xl justify-center align-middle">
-    
+
         <form className="flex flex-col w-auto items-center" onSubmit={loginUser}>
             <h1 className='px-3 font-extrabold mb-5 text-primarydark text-2xl '>Sign In</h1>
 
@@ -93,7 +93,7 @@ export default function LoginPage() {
 
             <div className='flex w-full h-full mt-4 justify-between px-1'>
               <div className='flex gap-2'>
-              <input  type="checkbox" checked={rememberMe} onChange={() => setRememberMe(prev => !prev)}/> 
+              <input  type="checkbox" checked={rememberMe} onChange={() => setRememberMe(prev => !prev)}/>
               Remember Me
               </div>
               <div>
@@ -101,10 +101,10 @@ export default function LoginPage() {
                   Forgot Password ?
                 </Link>
               </div>
-              
+
             </div>
 
-            
+
             <div className="w-full py-4">
               <button type="submit" className="primary w-full"> Sign in </button>
             </div>
@@ -126,29 +126,29 @@ export default function LoginPage() {
               <button className="secondary">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                   <path fillRule="evenodd" d="M11.03 3.97a.75.75 0 010 1.06l-6.22 6.22H21a.75.75 0 010 1.5H4.81l6.22 6.22a.75.75 0 11-1.06 1.06l-7.5-7.5a.75.75 0 010-1.06l7.5-7.5a.75.75 0 011.06 0z" clipRule="evenodd" />
-                </svg> 
-                Back 
+                </svg>
+                Back
               </button>
             </Link>
 
         </form>
 
     </div>
-   
+
     <div className= "hidden lg:flex flex-col right-box">
       <div className='flex flex-col -ml-96 gap-3'>
         <div className='text-3xl font-black'>Welcome to</div>
         <div>
-          <img src="../src/assets/logo.png" alt="" className="w-48"/>
+          <img src="../public/assets/logo.png" alt="" className="w-48"/>
         </div>
       </div>
 
         <div className="-ml-48 w-80 mt-12">
-          <img src="../src/assets/signinpic.svg" alt="" className='w-full'/>
-        </div>   
-        
+          <img src="../public/assets/signinpic.svg" alt="" className='w-full'/>
+        </div>
+
     </div>
-    
+
   </div>
   )
 }

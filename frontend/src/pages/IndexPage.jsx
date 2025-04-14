@@ -10,7 +10,7 @@ import { BiLike } from "react-icons/bi";
 
    //! Fetch events from the server ---------------------------------------------------------------
     useEffect(() => {
-      
+
       axios
         .get("/createEvent")
         .then((response) => {
@@ -20,7 +20,7 @@ import { BiLike } from "react-icons/bi";
           console.error("Error fetching events:", error);
         });
     }, []);
-    
+
   //! Like Functionality --------------------------------------------------------------
     const handleLike = (eventId) => {
       axios
@@ -39,25 +39,25 @@ import { BiLike } from "react-icons/bi";
           console.error("Error liking ", error);
         });
     };
-  
+
 
     return (
       <>
       <div className="mt-1 flex flex-col">
         <div className="hidden sm:block" >
           <div href="#" className="flex item-center inset-0">
-            <img src="../src/assets/hero.jpg" alt="" className='w-full'/> 
+            <img src="../public/assets/hero.jpg" alt="" className='w-full'/>
           </div>
         </div>
 
         <div className="mx-10 my-5 grid gap-x-6 gap-y-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:mx-5 ">
-        
+
         {/*-------------------------- Checking whether there is a event or not-------------------  */}
         {events.length > 0 && events.map((event) => {
           const eventDate = new Date(event.eventDate);
           const currentDate = new Date();
-          
-          //! Check the event date is passed or not --------------------------------------------------------------------------------------- 
+
+          //! Check the event date is passed or not ---------------------------------------------------------------------------------------
           if (eventDate > currentDate || eventDate.toDateString() === currentDate.toDateString()){
             return (
               <div className="bg-white rounded-xl relative" key={event._id}>
@@ -66,8 +66,8 @@ import { BiLike } from "react-icons/bi";
                 <img
                   src={`http://localhost:4000/api/${event.image}`}
                   alt={event.title}
-                  width="300" 
-                  height="200" 
+                  width="300"
+                  height="200"
                   className="w-full h-full"
                 />
               )}
@@ -75,13 +75,13 @@ import { BiLike } from "react-icons/bi";
                 <button onClick={() => handleLike(event._id)}>
                   <BiLike className="w-auto h-12 lg:h-10 sm:h-12 md:h-10 bg-white p-2 rounded-full shadow-md transition-all hover:text-primary" />
                 </button>
-              
+
                 </div>
               </div>
 
-                
 
-                <img src="../src/assets/paduru.png" alt="" className='rounded-tl-[0.75rem] rounded-tr-[0.75rem] rounded-br-[0] rounded-bl-[0] object-fill aspect-16:9'/> 
+
+                <img src="../public/assets/paduru.png" alt="" className='rounded-tl-[0.75rem] rounded-tr-[0.75rem] rounded-br-[0] rounded-bl-[0] object-fill aspect-16:9'/>
     {/* FIXME: This is a demo image after completing the create event function delete this */}
 
               <div className="m-2 grid gap-2">
@@ -89,7 +89,7 @@ import { BiLike } from "react-icons/bi";
                   <h1 className="font-bold text-lg mt-2">{event.title.toUpperCase()}</h1>
                   <div className="flex gap-2 items-center mr-4 text-red-600"> <BiLike /> {event.likes}</div>
                 </div>
-                
+
 
                 <div className="flex text-sm flex-nowrap justify-between text-primarydark font-bold mr-4">
                   <div>{event.eventDate.split("T")[0]}, {event.eventTime}</div>
@@ -104,18 +104,17 @@ import { BiLike } from "react-icons/bi";
                 <Link to={'/event/'+event._id} className="flex justify-center">
                   <button className="primary flex items-center gap-2">Book Ticket< BsArrowRightShort className="w-6 h-6" /></button>
                 </Link>
-                
+
               </div>
             </div>
             )
           }
           return null;
-        }   
+        }
         )}
         </div>
       </div>
       </>
-        
+
       )
   }
-  

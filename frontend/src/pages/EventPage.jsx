@@ -41,7 +41,7 @@ export default function EventPage() {
     const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(linkToShare)}`;
     window.open(facebookShareUrl);
   };
-  
+
 if (!event) return '';
   return (
     <div className="flex flex-col mx-5 xl:mx-32 md:mx-10 mt-5 flex-grow">
@@ -51,13 +51,13 @@ if (!event) return '';
         )}
       </div>
 
-      <img src="../src/assets/paduru.png" alt="" className='rounded object-fill aspect-16:9'/> 
+      <img src="../public/assets/paduru.png" alt="" className='rounded object-fill aspect-16:9'/>
       {/* FIXME: This is a demo image after completing the create event function delete this */}
 
       <div className="flex justify-between mt-8 mx-2">
           <h1 className="text-3xl md:text-5xl font-extrabold">{event.title.toUpperCase()}</h1>
           <Link to={'/event/'+event._id+ '/ordersummary'}>
-            <button className="primary">Book Ticket</button>  
+            <button className="primary">Book Ticket</button>
           </Link>
       </div>
       <div className="mx-2">
@@ -68,7 +68,7 @@ if (!event) return '';
       </div>
       <div className="mx-2 mt-5 text-md md:text-xl font-bold text-primarydark">
         Organized By {event.organizedBy}
-        
+
       </div>
       <div className="mx-2 mt-5">
         <h1 className="text-md md:text-xl font-extrabold">When and Where </h1>
@@ -76,29 +76,29 @@ if (!event) return '';
           <div className="flex items-center gap-4">
             <AiFillCalendar className="w-auto h-5 text-primarydark "/>
             <div className="flex flex-col gap-1">
-              
+
               <h1 className="text-md md:text-lg font-extrabold">Date and Time</h1>
               <div className="text-sm md:text-lg">
               Date: {event.eventDate.split("T")[0]} <br />Time: {event.eventTime}
               </div>
             </div>
-            
+
           </div>
           <div className="">
             <div className="flex items-center gap-4">
             <MdLocationPin className="w-auto h-5 text-primarydark "/>
             <div className="flex flex-col gap-1">
-              
+
               <h1 className="text-md md:text-lg font-extrabold">Location</h1>
               <div className="text-sm md:text-lg">
                 {event.location}
               </div>
             </div>
-            
+
           </div>
           </div>
         </div>
-            
+
       </div>
       <div className="mx-2 mt-5 text-md md:text-xl font-extrabold">
         Share with friends

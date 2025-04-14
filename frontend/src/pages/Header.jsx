@@ -15,7 +15,7 @@ export default function Header() {
 
   //! Fetch events from the server -------------------------------------------------
   useEffect(() => {
-    
+
     axios.get("/events").then((response) => {
       setEvents(response.data);
     }).catch((error) => {
@@ -39,8 +39,8 @@ export default function Header() {
     return () => {
       document.removeEventListener("click", handleDocumentClick);
     };
-  }, []); 
-  
+  }, []);
+
   //! Logout Function --------------------------------------------------------
   async function logout(){
     await axios.post('/logout');
@@ -54,12 +54,12 @@ export default function Header() {
   return (
     <div>
       <header className='flex py-2 px-6 sm:px-6 justify-between place-items-center'>
-          
+
           <Link to={'/'} className="flex item-center ">
-            <img src="../src/assets/logo.png" alt="" className='w-26 h-9'/>
+            <img src="../src/" alt="" className='w-26 h-9'/>
           </Link>
           <div  className='flex bg-white rounded py-2.5 px-4 w-1/3 gap-4 items-center shadow-md shadow-gray-200'>
-            
+
             <button>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
@@ -68,8 +68,8 @@ export default function Header() {
             <div ref={searchInputRef}>
               <input type="text" placeholder="Search" value={searchQuery} onChange={handleSearchInputChange} className='text-sm text-black outline-none w-full '/>
             </div>
-            {/* <div className='text-sm text-gray-300 font-semibold'>Search</div> */}      
-          </div> 
+            {/* <div className='text-sm text-gray-300 font-semibold'>Search</div> */}
+          </div>
 
           {/*------------------------- Search Functionality -------------------  */}
           {searchQuery && (
@@ -89,8 +89,8 @@ export default function Header() {
               ))}
           </div>
           )}
-    
-          
+
+
           <Link to={'/createEvent'}> {/*TODO:Route create event page after creating it */}
             <div className='hidden md:flex flex-col place-items-center py-1 px-2 rounded text-primary cursor-pointer hover:text-primarydark hover:bg-white hover:shadow-sm shadow-gray-200 hover:transition-shadow duration-1500'>
               <button>
@@ -99,7 +99,7 @@ export default function Header() {
                 </svg>
               </button>
               <div className='font-bold color-primary text-sm'>Create Event</div>
-            </div>  
+            </div>
           </Link>
 
           <div className='hidden lg:flex gap-5 text-sm'>
@@ -131,26 +131,26 @@ export default function Header() {
             </div>
             </Link>
           </div>
-          
+
 
           <div>
             <div className='flex flex-col place-items-center py-1 px-3 rounded cursor-pointer hover:text-primarydark hover:bg-white hover:shadow-sm shadow-gray-200 hover:transition-shadow duration-1500'>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 py-1">
                 <path fillRule="evenodd" d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z" clipRule="evenodd" />
               </svg>
-          
+
             </div>
           </div>
 
         {/* -------------------IF user is Logged DO this Main-------------------- */}
         {!!user &&(
-          
+
           <div className="flex flex-row items-center gap-2 sm:gap-8 ">
             <div className="flex items-center gap-2">
-              <Link to={'/useraccount'}>  {/*TODO: Route user profile page after creating it -> 1.50*/} 
+              <Link to={'/useraccount'}>  {/*TODO: Route user profile page after creating it -> 1.50*/}
                 {user.name.toUpperCase()}
               </Link>
-              
+
               <BsFillCaretDownFill className="h-5 w-5 cursor-pointer hover:rotate-180 transition-all" onClick={() => setisMenuOpen(!isMenuOpen)}/>
             </div>
             <div className="hidden md:flex">
@@ -159,13 +159,13 @@ export default function Header() {
                 <RxExit/>
               </button>
             </div>
-          </div>  
+          </div>
         )}
 
         {/* -------------------IF user is not Logged in DO this MAIN AND MOBILE-------------------- */}
         {!user &&(
           <div>
-            
+
             <Link to={'/login'} className=" ">
               <button className="primary">
                 <div>Sign in </div>
@@ -173,22 +173,22 @@ export default function Header() {
             </Link>
           </div>
         )}
-          
+
           {/* -------------------IF user is Logged DO this Mobile -------------------- */}
           {!!user &&(
             //w-auto flex flex-col absolute bg-white pl-2 pr-6 py-5 gap-4 rounded-xl
-            <div className="absolute z-10 mt-64 flex flex-col w-48 bg-white right-2 md:right-[160px] rounded-lg shadow-lg"> 
+            <div className="absolute z-10 mt-64 flex flex-col w-48 bg-white right-2 md:right-[160px] rounded-lg shadow-lg">
             {/* TODO: */}
               <nav className={`block ${isMenuOpen ? 'block' : 'hidden'} `}>
                 <div className="flex flex-col font-semibold text-[16px]">
                 <Link className="flex hover:bg-background hover:shadow py-2 pt-3 pl-6 pr-8 rounded-lg" to={'/createEvent'} >
                   Create Event
                 </Link>
-                
+
                 <Link className="flex hover:bg-background hover:shadow py-2 pl-6 pr-8 rounded-lg" to={'/wallet'}>
                   <div>Wallet</div>
                 </Link>
-                
+
                 <Link className="flex hover:bg-background hover:shadow py-2 pl-6 pr-8 rounded-lg" to={'/verification'}>
                   <div>Center</div>
                 </Link>
@@ -206,7 +206,7 @@ export default function Header() {
         )}
 
         </header>
-          
+
     </div>
   )
 }
