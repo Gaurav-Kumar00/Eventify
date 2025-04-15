@@ -44,4 +44,4 @@ Introducing our Event Management System, a solution developed by me, designed to
 
 <h1>Thank You</h1>
 
-![portfolio_1](https://github.com/Bilal025/EventoEMS/assets/95700674/001ddf1c-72b3-40bb-8e3e-975ae00ccee5)
+
